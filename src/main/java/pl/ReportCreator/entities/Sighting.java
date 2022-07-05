@@ -3,8 +3,10 @@ package pl.ReportCreator.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "sightings")
 public class Sighting {
 
     @Id
@@ -14,13 +16,42 @@ public class Sighting {
     )
     private Long id;
 
+    @Column(
+            name = "title"
+    )
     private String title;
+
+    @Column(
+            name = "cycle_found"
+    )
     private String foundInCycle;
+
+    @Column(
+            name = "priority"
+    )
     private String priority;
+
+    @Column(
+            name = "new_issue_status"
+    )
     private Boolean newIssueStatus;
+
+    @Column(
+            name = "regression_status"
+    )
     private String regressionStatus;
+
+    @Column(
+            name = "status_reason"
+    )
     private String statusReason;
+    @Column(
+            name = "component"
+    )
     private String component;
+
+    public Sighting() {
+    }
 
     public Sighting(Long id, String title, String foundInCycle, String priority, Boolean newIssueStatus, String regressionStatus, String statusReason, String component) {
         this.id = id;
@@ -95,5 +126,19 @@ public class Sighting {
 
     public void setComponent(String component) {
         this.component = component;
+    }
+
+    @Override
+    public String toString() {
+        return "Sighting{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", foundInCycle='" + foundInCycle + '\'' +
+                ", priority='" + priority + '\'' +
+                ", newIssueStatus=" + newIssueStatus +
+                ", regressionStatus='" + regressionStatus + '\'' +
+                ", statusReason='" + statusReason + '\'' +
+                ", component='" + component + '\'' +
+                '}';
     }
 }
