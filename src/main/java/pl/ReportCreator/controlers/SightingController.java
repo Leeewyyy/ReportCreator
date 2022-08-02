@@ -1,6 +1,9 @@
 package pl.ReportCreator.controlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,9 +11,9 @@ import pl.ReportCreator.entities.Sighting;
 import pl.ReportCreator.services.SightingService;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(path = "sightings")
+@RequestMapping("/sightings")
 public class SightingController {
 
     private final SightingService sightingService;
@@ -21,7 +24,23 @@ public class SightingController {
     }
 
     @GetMapping
-    public List<Sighting> getSightings() {
-        return sightingService.getSightings();
+    public ResponseEntity<List<Sighting>> getSightings() {
+        List<Sighting> sightings = sightingService.getSightings();
+        return new ResponseEntity<>(sightings, HttpStatus.OK);
     }
+
+//    @GetMapping("")
+//    public String index(Model model) {
+//        return "index";
+//    }
+//
+//    @GetMapping("/generate")
+//    public String generate() {
+//        return "generate";
+//    }
+//
+//    @GetMapping("/add")
+//    public String add() {
+//        return "add";
+//    }
 }
