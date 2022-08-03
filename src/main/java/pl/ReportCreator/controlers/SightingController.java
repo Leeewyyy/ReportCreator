@@ -28,19 +28,4 @@ public class SightingController {
         List<Sighting> sightings = sightingService.getSightings();
         return new ResponseEntity<>(sightings, HttpStatus.OK);
     }
-
-//    @GetMapping("")
-//    public String index(Model model) {
-//        return "index";
-//    }
-//
-//    @GetMapping("/generate")
-//    public String generate() {
-//        return "generate";
-//    }
-//
-//    @GetMapping("/add")
-//    public String add() {
-//        return "add";
-//    }
 }
