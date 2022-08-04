@@ -3,10 +3,7 @@ package pl.ReportCreator.controlers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.ReportCreator.entities.Sighting;
 import pl.ReportCreator.services.SightingService;
 
@@ -27,5 +24,11 @@ public class SightingController {
     public ResponseEntity<List<Sighting>> getSightings() {
         List<Sighting> sightings = sightingService.getSightings();
         return new ResponseEntity<>(sightings, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<Sighting> updateSighting(@RequestBody Sighting sighting) {
+        Sighting updateSighting = sightingService.updateSighting(sighting);
+        return new ResponseEntity<>(updateSighting, HttpStatus.OK);
     }
 }
