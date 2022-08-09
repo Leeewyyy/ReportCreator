@@ -11,6 +11,7 @@
 	<groupId>pl</groupId>
 	<artifactId>ReportCreator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>ReportCreator</name>
 	<description>Issues report creator</description>
 	<properties>
