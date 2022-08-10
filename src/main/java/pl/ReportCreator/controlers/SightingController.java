@@ -8,9 +8,9 @@ import pl.ReportCreator.entities.Sighting;
 import pl.ReportCreator.services.SightingService;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/sightings")
+@RequestMapping
 public class SightingController {
 
     private final SightingService sightingService;
